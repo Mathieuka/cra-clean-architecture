@@ -1,6 +1,12 @@
 import axios from 'axios';
 
-export default {
+export interface Todos {
+  getAll: () => Promise<any>;
+}
+
+const todos: Todos = {
   getAll: async () =>
     await axios.get('https://jsonplaceholder.typicode.com/todos'),
 };
+
+export default todos;

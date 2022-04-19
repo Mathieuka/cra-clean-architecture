@@ -1,10 +1,10 @@
 import React from 'react';
-import { useQuery, useMutation, useQueryClient } from 'react-query';
-import api from '../../infrastructure/services/api';
+import useTodos from '../../application/providers/TodosProvider/useTodos';
 
 function Todo() {
-  const query = useQuery('todos', api.todos.getAll);
-  console.log('query', query);
+  const { data } = useTodos();
+
+  console.log('data', data);
   return (
     <div className="App">
       <header className="App-header">
