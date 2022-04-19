@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useQuery, useMutation, useQueryClient } from 'react-query';
+import api from '../../infrastructure/services/api';
 
-function App() {
+function Todo() {
+  const query = useQuery('todos', api.todos.getAll);
+  console.log('query', query);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edits <code>src/App.tsx</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -23,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default Todo;
