@@ -1,7 +1,5 @@
-import api from './api';
+import todosApi from './todos/todosApi';
 
-const services = {
-  api,
+export default {
+  todosApi,
 };
-
-export default services;

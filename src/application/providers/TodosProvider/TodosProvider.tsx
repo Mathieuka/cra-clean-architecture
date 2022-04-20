@@ -7,13 +7,9 @@ export const TodosContext = createContext<UseQueryResult<any, unknown>>(
 );
 
 const useTodosContext = () => {
-  const {
-    api: {
-      todos: { getAll },
-    },
-  } = useServices();
+  const { todosApi } = useServices();
 
-  const response = useQuery('todos', getAll);
+  const response = useQuery('todos', todosApi.getAll);
 
   const contextValue = useMemo(
     () => ({

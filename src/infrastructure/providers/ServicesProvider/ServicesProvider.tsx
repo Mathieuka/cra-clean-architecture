@@ -1,16 +1,16 @@
 import { createContext } from 'react';
-import api from '../../services/api';
-import { Services } from '../../services/api';
+import services from '../../services';
+import { iTodos } from '../../services/todos/todosApi';
 
-interface ServicesContext {
-  api: Services;
+export interface Services {
+  todosApi: iTodos;
 }
 
-export const ServiceContext = createContext<ServicesContext>(
-  {} as ServicesContext
-);
+export const ServiceContext = createContext<Services>({} as Services);
 
-export const useServicesContext = () => ({ api });
+export const useServicesContext = () => {
+  return services;
+};
 
 const ServicesProvider = ({ children }: { children: JSX.Element }) => {
   const context = useServicesContext();
